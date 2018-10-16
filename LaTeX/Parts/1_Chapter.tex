@@ -1,4 +1,27 @@
 \chapter{Einführung}
 \section{Beschreibung und Vision}
+An der Hochschule Landshut studieren gut fünftausend Studenten. 
+Darüber hinaus umfasst das Personal annähernd 120 Professoren und Professorinnen und circa 45 Wissenschaftliche Mitarbeiter.
+Die Organisation eines reibungslosen Ablaufes des täglichen Studienbetriebes stellt also eine herausfordernde Aufgabe dar.
+Allerdings obliegt auch eine perfekt durchdachte Planung gewissen Ungenauigkeiten, die sich beispielsweise auf höhere Gewalt oder Krankheit zurückführen lassen.
+Es ist also nötig kurzfristige Änderungen an alle Teilnehmer möglichst schnell zu übermitteln.
+Aus diesem Grund ist eine verlässliche und komfortable Möglichkeit zur Kommunikation unerlässlich, um diese organisatorischen Herausforderungen bewältigen zu können.\\
+\\
+Die Applikation \enquote{generoBoard} soll ein Werkzeug für eben jene Kommunikation darstellen.
+Speziell die 1:n Informationsübermittlung -- ein Professor will beispielsweise einem komplettem Kurs eine Raumänderung mitteilen -- soll im Fokus stehen.
+Aktuell wird dieser Anwendungsfall über das \enquote{schwarze Brett} abgewickelt; jedem Student eines ganzen Studiengangs werden alle Nachrichten mitgeteilt, auch wenn diese für bestimmte Studenten nicht relevant sind.\\
+\\
+Zur Verbesserung der jetzigen Situation verfolgt \enquote{generoBoard} den Ansatz der sogenannten Kursräume.
+Ein dazu privilegierter Benutzer A erstellt eine Themengruppe und andere Anwender können diese abonnieren; sie erhalten also alle Nachrichten, die Benutzer A in diese Themengruppe einstellt.
+Im regulärem Fall übernehmen Professoren die Rolle des Kursräume; idealerweise wird für jeden Kurs eine Themengruppe erstellt.
+Die Studenten abonnieren dann die Kursräume der Kurse, die sie besuchen.\\
+\\
+Um missbräuchliche Benutzung zu vermeiden werden bestimmte Rollen implementiert:
+\begin{itemize}
+\item \textbf{Dozent:} Darf Kursräume erstellen und Nachrichten einstellen.
+\item \textbf{Student:} Darf Kursräume abonnieren und deabonnieren. 
+\item \textbf{Administrator:} Darf Kursräume erstellen und löschen, außerdem darf Rollen an anderer Benutzer verwalten.
+\end{itemize}
+
 \section{Zielgruppe}
 \section{Vermarktungsstrategie}
