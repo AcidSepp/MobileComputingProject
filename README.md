@@ -1,2 +1,2 @@
-# Latex_Template_Zusammenfassungen
-A simple LaTex Template.
+# Mobile Computing Report
+The Report for Mobile Computing Wintersemester 2018/19.
