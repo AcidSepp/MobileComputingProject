@@ -1,0 +1,53 @@
+\chapter{Planung und Konzeption}
+\section{Funktionale Anforderungen}
+Die Kursräume stellen das Kernkonzept dar; sie können erstellt, gelöscht, abonniert, deabonniert und Nachrichten in sie eingestellt werden.
+Ein Benutzer muss sich beim Start der Applikation mit seinem eindeutigem Nutzernamen und dem zugehörigem Passwort authentifizieren.
+Die Anwender sind in drei Kategorien eingeteilt: Student, Professor und Administrator.
+Je nach Rolle des Benutzers wird die jeweilige Oberfläche angezeigt.
+Im Folgenden wird das Kursraumkonzept und die jeweiligen Rollen genau beschrieben.
+
+\subsection{Kursraumkonzept}
+Ein Kursraum ist im Normalfall einem Kurs, der aus einem Professor und einer beliebigen Anzahl an Studenten besteht, zugeordnet.
+Er wird vom Dozenten erstellt und die Studenten können ihn anschließend abonnieren.
+Stellt der Kursraumersteller nun eine Nachricht ein, wird diese an jeden Abonnenten weitergeleitet.
+Ein Dozent kann eine beliebige Anzahl an Kursräumen erstellen und von ihm erstellte auch wieder löschen.
+Ein Student kann mehrere Kursräume abonnieren und wieder deabonnieren.
+Abbildung \ref{pic:kursraumkonzept} visualisiert das eben Erläuterte.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=1]{Resources/KursraumKonzept}
+	\caption{Visualisierung des Kursraumkonzeptes}
+	\label{pic:kursraumkonzept}
+	\end{center}
+\end{figure}
+\newpage
+\subsection{Rollen}
+In den folgenden Abschnitten werden die Benutzerrollen und die speziellen Anwendungsfälle genau definiert.
+Alle Benutzer haben gemein, dass sie sich vor dem Benutzen der Applikation mit Passwort und Benutzernamen authentifizieren müssen.
+Die jeweiligen Rollen sind in der Datenbank hinterlegt.
+\subsubsection{Dozent}
+Ein Dozent kann Kursräume erstellen und diese wieder löschen.
+In einem von ihm erstelltem Raum kann er Nachrichten einstellen, die an alle Abonnenten dieses Raumes weitergeleitet werden. 
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=1]{Resources/UseCaseDozent}
+	\caption{Anwendungsfälle für Benutzer in der Rolle \enquote{Dozent}}
+	\label{pic:UseCaseDozent}
+	\end{center}
+\end{figure}
+\subsubsection{Student}
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=1]{Resources/UseCaseStudent}
+	\caption{Anwendungsfälle für Benutzer in der Rolle \enquote{Student}}
+	\label{pic:UseCaseStudent}
+	\end{center}
+\end{figure}
+\subsubsection{Administrator}
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=1]{Resources/UseCaseAdmin}
+	\caption{Anwendungsfälle für Benutzer in der Rolle \enquote{Administrator}}
+	\label{pic:UseCaseAdmin}
+	\end{center}
+\end{figure}
