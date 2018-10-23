@@ -31,23 +31,93 @@ In einem von ihm erstelltem Raum kann er Nachrichten einstellen, die an alle Abo
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[scale=1]{Resources/UseCaseDozent}
-	\caption{Anwendungsfälle für Benutzer in der Rolle \enquote{Dozent}}
+	\caption{Berechtigungen für Benutzer in der Rolle \enquote{Dozent}}
 	\label{pic:UseCaseDozent}
 	\end{center}
 \end{figure}
 \subsubsection{Student}
+Ein Student ist dazu berechtigt Kursräume zu abonnieren und zu deabonnieren.
+Er empfängt alle Nachrichten, die in von ihm abonnierten Kursräumen eingestellt wurden.
+Es können nur Kursräume deabonniert werden, die zuvor abonniert wurden.
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[scale=1]{Resources/UseCaseStudent}
-	\caption{Anwendungsfälle für Benutzer in der Rolle \enquote{Student}}
+	\caption{Berechtigungen für Benutzer in der Rolle \enquote{Student}}
 	\label{pic:UseCaseStudent}
 	\end{center}
 \end{figure}
 \subsubsection{Administrator}
+Administratoren erhalten eine Übersicht über alle Benutzer und die ihnen zugeordneten Rollen.
+Er ist dazu berechtigt einen Studenten in einen Dozenten umzuwandeln und umgekehrt.
+Die Rolle \enquote{Administrator} kann nicht über die Android-Applikation vergeben werden.
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[scale=1]{Resources/UseCaseAdmin}
-	\caption{Anwendungsfälle für Benutzer in der Rolle \enquote{Administrator}}
+	\caption{Berechtigungen für Benutzer in der Rolle \enquote{Administrator}}
 	\label{pic:UseCaseAdmin}
 	\end{center}
 \end{figure}
+\subsection{Oberflächen}
+Im Nachfolgendem werden die Benutzeroberflächen der Applikation, die enthaltenen Bedienelemente und deren jeweilige Funktion beschrieben.
+\subsubsection{Authentifizierung}
+Zu Beginn einer Sitzung muss sich jeder Anwender -- unabhängig von seiner Rolle -- mit seiner E-Mailadresse und dem zugehörigem Passwort anmelden. 
+Es sind nur E-Mailadressen der Hochschule Landshut zulässig.
+Die Bedienungsoberfläche für den ersten Benutzungsschritt wird in Abbildung \ref{pic:ActivityLogin} dargestellt.
+Im Feld \enquote{Email} wird die Mailadresssee des Anwenders und analog dazu im Feld \enquote{Passwort} das Passwort eingetragen.
+Durch Klick auf den Knopf \enquote{Sign In} startet ein Authentifizierungsversuch.
+Zunächst überprüft die Applikation die syntaktische Korrektheit der Mailadresse und informiert gegebenenfalls über ungültige Eingaben.
+Im Falle einer validen Eingabe werden die Anmeldedaten an den Server geleitet und mit der Datenbank abgeglichen.
+Existiert ein Benutzer mit den jeweiligen Daten, so wird die zugeordnete Rolle übermittelt.
+Abhängig von der Antwort des Servers öffnet sich dann die Oberfläche \enquote{\nameref{section:AdminOberflache}}, \enquote{\nameref{section:DozentenOberflache}} oder 
+\enquote{\nameref{section:StudentenOberflache}}.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.25]{Resources/ActivityLogin}
+	\caption{Oberfläche für das Anmelden in der Applikation}
+	\label{pic:ActivityLogin}
+	\end{center}
+\end{figure}
+\subsubsection{Hauptmenü für Administratoren}\label{section:AdminOberflache}
+Wird der Anwender als Administrator identifiziert, dann öffnet sich das Menü aus Abbildung \ref{pic:AdminOberflache}.
+Nun kann entweder zur Ansicht \enquote{Promote Lecturer} beziehungsweise \enquote{Remove Lecturer} gewechselt werden.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.25]{Resources/ActivityMainMenuAdmin}
+	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Administrator}}
+	\label{pic:AdminOberflache}
+	\end{center}
+\end{figure}
+\subsubsection{Hauptmenü für Dozenten}\label{section:DozentenOberflache}
+Hat sich ein Nutzer der Rolle \enquote{Dozent} erfolgreich angemeldet, so erscheint die Oberfläche aus Abbildung \ref{pic:DozentenOberflache}.
+Er hat nun die Möglichkeit entweder über den Button \enquote{My Classrooms} alle von ihm verwalteten Kursräume zu betrachten oder über \enquote{Add Classroom} einen neuen Kursraum zu erstellen.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.3]{Resources/ActivityMainMenuDozent}
+	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Dozent}}
+	\label{pic:DozentenOberflache}
+	\end{center}
+\end{figure}
+\subsubsection{Hauptmenü für Studenten}\label{section:StudentenOberflache}
+Der Screen aus Abbildung \ref{pic:StudentenOberflache} wird für einen Student nach dessen Anmeldung geöffnet.
+Er kann nun mit \enquote{Show Messages} alle aktuellen Nachrichten der Kursräume, die er abonniert hat, anzeigen lassen oder mit \enquote{My Classrooms} seine abonnierten Kursräume verwalten.
+Über die Option \enquote{All Classrooms} werden alle offenen Kursräume angezeigt; der Student hat so die Möglichkeit diese zu abonnieren.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.5]{Resources/ActivityMainMenuStudent}
+	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
+	\label{pic:StudentenOberflache}
+	\end{center}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
