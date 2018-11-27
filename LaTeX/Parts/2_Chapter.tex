@@ -72,7 +72,7 @@ Abhängig von der Antwort des Servers öffnet sich dann die Oberfläche \enquote
 \enquote{\nameref{section:StudentenOberflache}}.
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.25]{Resources/ActivityLogin}
+	\includegraphics[scale=0.15]{Resources/ActivityLogin}
 	\caption{Oberfläche für das Anmelden in der Applikation}
 	\label{pic:ActivityLogin}
 	\end{center}
@@ -97,19 +97,60 @@ Er hat nun die Möglichkeit entweder über den Button \enquote{My Classrooms} al
 	\label{pic:DozentenOberflache}
 	\end{center}
 \end{figure}
-\subsubsection{Hauptmenü für Studenten}\label{section:StudentenOberflache}
-Der Screen aus Abbildung \ref{pic:StudentenOberflache} wird für einen Student nach dessen Anmeldung geöffnet.
-Er kann nun mit \enquote{Show Messages} alle aktuellen Nachrichten der Kursräume, die er abonniert hat, anzeigen lassen oder mit \enquote{My Classrooms} seine abonnierten Kursräume verwalten.
-Über die Option \enquote{All Classrooms} werden alle offenen Kursräume angezeigt; der Student hat so die Möglichkeit diese zu abonnieren.
+
+\newpage
+\subsubsection{Oberfläche für Studenten}\label{section:StudentenOberflache}
+Nach erfolgreicher Anmeldung wird einem Studenten die Oberfläche aus Abbildung \ref{pic:StudentenMyMessages} gezeigt. Hier werden alle Nachrichten aus seinen abonnierten Kursräumen -- sortiert nach Einstellzeitpunkt -- angezeigt.
+Die angezeigten Daten werden sofort nach betreten dieser Ansicht vom Server geladen.
+Durch Drücken auf das \enquote{Refresh} Symbol oben rechts, werden die Nachrichten erneut vom Server abgerufen und eventuell zwischenzeitlich neu eingestellte ebenfalls angezeigt.
+Der Menü-Button oben links führt den Benutzer in die Ansicht aus Abbildung \ref{pic:StudentenOberflache}.
+Zur Verbesserung der Übersichtlichkeit kann in dem Texteingabefeld \enquote{Filter} ein Suchtext eingegeben werden; es werden so nur noch Nachrichten angezeigt, deren Kursraum oder Nachrichtentext die eingegebene Zeichenfolge enthält.
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.5]{Resources/ActivityMainMenuStudent}
+	\includegraphics[scale=0.1]{Resources/ActivityMyMessages}
+	\caption{Anzeige aller Nachrichten aus abonnierten Kursräumen}
+	\label{pic:StudentenMyMessages}
+	\end{center}
+\end{figure}
+
+Studenten können mittels des in Abbildung \ref{pic:StudentenOberflache} gezeigtem Screens durch die App navigieren.
+Es können mit \enquote{My Messages} alle aktuellen Nachrichten der abonnierten Kursräume angezeigt werden. 
+Unter \enquote{My Classrooms} werden alle abonnierten Klassenräume geladen, diese können hier deabonniert werden.
+Über die Option \enquote{All Classrooms} werden alle offenen Kursräume angezeigt; ein Student hat so die Möglichkeit diese zu abonnieren beziehungsweise zu deabonnieren.
+Über den Menüpunkt \enquote{logout} meldet sich der Anwender aus der Applikation ab und gelangt zurück in die Authentifizierungsansicht.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.10]{Resources/ActivityMainMenuStudent}
 	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
 	\label{pic:StudentenOberflache}
 	\end{center}
 \end{figure}
+\newpage
+In der Ansicht, die in Abbildung \ref{pic:StudentenMyClassrooms} dargestellt ist, werden Benutzern in der Rolle \enquote{Student} alle Kursräume und der zugeordnete Dozent angezeigt, die sie abonniert haben.
+Rechts neben jedem abonnierten Kursraum befindet sich ein Schalter, der anzeigt, ob der betreffende Klassenraum abonniert ist oder nicht. 
+Bei Betreten der Ansicht werden alle Kursräume als abonniert markiert. 
+Durch Betätigen des Schalters wird der entsprechende Kursraum deabonniert und der Schalter steht auf aus. 
+Es besteht die Möglichkeit durch erneutes Drücken den Kursraum wieder zu abonnieren; erst bei manueller Aktualisierung mittels des \enquote{Refresh}-Symbols wird der Kursraum entfernt. 
+Filtern analog zur Oben beschriebenen Oberfläche ist ebenfalls möglich.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.10]{Resources/ActivityMyClassrooms}
+	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
+	\label{pic:StudentenMyClassrooms}
+	\end{center}
+\end{figure}
 
-
+Die Activity \enquote{All Classrooms} (Abbildung \ref{pic:StudentenAllClassrooms}) zeigt alle Kursräume, die vom Benutzer abonniert werden können. Nicht abonnierte Kursräume werden mit einem deaktiviertem Schalter markiert und umgekehrt.
+Der Anwender hat hier die Möglichkeit weitere Kursräume zu suchen und abonnieren oder gegebenenfalls auch zu de-abonnieren.
+Bei Betreten dieser Activity werden die aktuellen Daten vom Server abgerufen, Betätigen des \enquote{Refresh}-Symbols aktualisiert die Daten manuell.
+Über das Menü Symbol gelangt der Benutzer zurück in die Navigation.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.10]{Resources/ActivityAllClassrooms}
+	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
+	\label{pic:StudentenAllClassrooms}
+	\end{center}
+\end{figure}
 
 
 
