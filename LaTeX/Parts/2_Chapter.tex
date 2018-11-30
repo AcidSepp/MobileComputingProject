@@ -77,26 +77,37 @@ Abhängig von der Antwort des Servers öffnet sich dann die Oberfläche \enquote
 	\label{pic:ActivityLogin}
 	\end{center}
 \end{figure}
-\subsubsection{Hauptmenü für Administratoren}\label{section:AdminOberflache}
-Wird der Anwender als Administrator identifiziert, dann öffnet sich das Menü aus Abbildung \ref{pic:AdminOberflache}.
-Nun kann entweder zur Ansicht \enquote{Promote Lecturer} beziehungsweise \enquote{Remove Lecturer} gewechselt werden.
+%\subsubsection{Hauptmenü für Administratoren}\label{section:AdminOberflache}
+%Wird der Anwender als Administrator identifiziert, dann öffnet sich das Menü aus Abbildung \ref{pic:AdminOberflache}.
+%Nun kann entweder zur Ansicht \enquote{Promote Lecturer} beziehungsweise \enquote{Remove Lecturer} gewechselt werden.
+%\begin{figure}[H]
+%	\begin{center}
+%	\includegraphics[scale=0.25]{Resources/ActivityMainMenuAdmin}
+%	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Administrator}}
+%	\label{pic:AdminOberflache}
+%	\end{center}
+%\end{figure}
+\subsubsection{Oberfläche für Dozenten}\label{section:DozentenOberflache}
+Hat sich ein Nutzer der Rolle \enquote{Dozent} erfolgreich angemeldet, so erscheint die Oberfläche \enquote{MyClassrooms}.
+Hier werden alle Klassenräume angezeigt, die er verwaltet.
+Der Dozent hat nun die Möglichkeit entweder über den Button mit dem Löschen-Symbol Klassenräume und alle enthaltenen Nachrichten zu löschen (siehe Abbildung \ref{pic:LecturerDeleteClassroom}) oder über den Button unten Rechts einen neuen Klassenraum zu erstellen (siehe Abbildung \ref{pic:LecturerCreateClassroom}). 
+
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.25]{Resources/ActivityMainMenuAdmin}
-	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Administrator}}
-	\label{pic:AdminOberflache}
+	\includegraphics[scale=0.10]{Resources/LecturerMyClassrooms}
+	\caption{Löschen eines Klassenraums für Benutzer in der Rolle \enquote{Dozent}}
+	\label{pic:LecturerDeleteClassroom}
 	\end{center}
 \end{figure}
-\subsubsection{Hauptmenü für Dozenten}\label{section:DozentenOberflache}
-Hat sich ein Nutzer der Rolle \enquote{Dozent} erfolgreich angemeldet, so erscheint die Oberfläche aus Abbildung \ref{pic:DozentenOberflache}.
-Er hat nun die Möglichkeit entweder über den Button \enquote{My Classrooms} alle von ihm verwalteten Kursräume zu betrachten oder über \enquote{Add Classroom} einen neuen Kursraum zu erstellen.
+
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.3]{Resources/ActivityMainMenuDozent}
-	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Dozent}}
-	\label{pic:DozentenOberflache}
+	\includegraphics[scale=0.10]{Resources/LecturerCreateClassroom}
+	\caption{Erstellen eines Klassenraums in der Rolle \enquote{Dozent}}
+	\label{pic:LecturerCreateClassroom}
 	\end{center}
 \end{figure}
+
 
 \newpage
 \subsubsection{Oberfläche für Studenten}\label{section:StudentenOberflache}
@@ -107,8 +118,8 @@ Der Menü-Button oben links führt den Benutzer in die Ansicht aus Abbildung \re
 Zur Verbesserung der Übersichtlichkeit kann in dem Texteingabefeld \enquote{Filter} ein Suchtext eingegeben werden; es werden so nur noch Nachrichten angezeigt, deren Kursraum oder Nachrichtentext die eingegebene Zeichenfolge enthält.
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.1]{Resources/ActivityMyMessages}
-	\caption{Anzeige aller Nachrichten aus abonnierten Kursräumen}
+	\includegraphics[scale=0.1]{Resources/ActivityMyClassrooms}
+	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
 	\label{pic:StudentenMyMessages}
 	\end{center}
 \end{figure}
@@ -134,8 +145,8 @@ Es besteht die Möglichkeit durch erneutes Drücken den Kursraum wieder zu abonn
 Filtern analog zur Oben beschriebenen Oberfläche ist ebenfalls möglich.
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.10]{Resources/ActivityMyClassrooms}
-	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
+	\includegraphics[scale=0.10]{Resources/StudentUnsubscribeClassroom}
+	\caption{Deabonnieren eines Kursraums für Benutzer in der Rolle \enquote{Student}}
 	\label{pic:StudentenMyClassrooms}
 	\end{center}
 \end{figure}
@@ -146,11 +157,81 @@ Bei Betreten dieser Activity werden die aktuellen Daten vom Server abgerufen, Be
 Über das Menü Symbol gelangt der Benutzer zurück in die Navigation.
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[scale=0.10]{Resources/ActivityAllClassrooms}
-	\caption{Hauptmenü für Benutzer in der Rolle \enquote{Student}}
+	\includegraphics[scale=0.10]{Resources/StudentSubscribeClassroom}
+	\caption{Abonnieren eines Kursraums für Benutzer in der Rolle \enquote{Student}}
 	\label{pic:StudentenAllClassrooms}
 	\end{center}
 \end{figure}
+\newpage
+\section{Backend}
+Damit die Nutzer der App interaktiv miteinander kommunizieren können, ist eine Verbindung zu einem Server (im weiteren als Backend bezeichnet) nötig.
+Daten wie Klassenräume und Nachrichten können unter Angabe von validen Anmeldedaten abgefragt werden.
+Als Schnittstelle zwischen der App und dem Backend findet eine REST-API Verwendung.
+Die Datenbank verwaltet alle Daten wie Klassenräume, eingestellte Nachrichten und Anmeldedaten.
+Eine Grundsätzliche Struktur der Architektur der Komposition von SQL-Datenbank, REST-API und App ist in Abbildung \ref{pic:backendArchitektur} dargestellt.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.8]{Resources/BackendArchitektur}
+	\caption{Architektur des Backends}
+	\label{pic:backendArchitektur}
+	\end{center}
+\end{figure}
+\subsection{Datenbank}
+Zur Verwaltung der Anmeldedaten, Klassenräume, Nachrichten und Abonnements wird eine relationale Datenbank eingesetzt.
+Die Tabelle \enquote{Persons} enthält die Anmeldedaten (E-Mailadresse und Passwort) jedes Nutzers, sowie dessen jeweilige Rolle (Student, Dozent, Admin).
+In \enquote{Messages} sind die Nachrichten gespeichert, die Dozenten in ihre Kursräume einstellen. Jede Nachricht ist einem Kursraum eindeutig zugeordnet und erhält eine eindeutige id. Im Feld \enquote{Payload} ist der eigentliche Text der Nachricht abgespeichert.
+Kursraum werden in der Tabelle \enquote{Classrooms} verwaltet.
+Jedem Raum ist ein Dozent eindeutig zugeordnet.
+Über die \enquote{subscribes} wird die n:m-Beziehung zwischen Studenten und Kursräumen modelliert; sie enthält die Abonnements aller Studenten.
+Abbildung \ref{pic:entityRelationship} zeigt detailliert die Struktur der Datenbank.
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.8]{Resources/EntityRelationship}
+	\caption{Entity-Relationship Modell der Datenbank}
+	\label{pic:entityRelationship}
+	\end{center}
+\end{figure}
+\newpage
+\subsection{REST-API}
+Als Schnittstelle zwischen Backend und App dient eine RESTful-API.
+Verschiedene Daten sind über Endpoints (siehe Tabelle \ref{table:endpoints}) abrufbar, welche jeweils mit einer eindeutigen URI adressiert sind. 
+Jeder dieser Endpoints ist einem bestimmtem Anwendungsfall zugeordnet, zum Abrufen der Daten muss der Http-Client einen POST-Request senden, der die geforderten Argumente im JSON-Format enthält.
+Für Besseres Verständnis ist in Abbildung \ref{pic:rest} ein Beispiel angegeben: für den Login sendet die App einen POST-Request, welcher die Anmeldedaten enthält; der Server antwortet dann mit der Rolle des zugehörigen Benutzers.
+Der Vorteil dieser Art von Schnittstelle liegt darin, dass das Backend \textit{stateless} -- also ohne Wissen über den Status des Clients -- implementiert werden kann.
+Jedoch müssen bei der Abfrage jeder Ressource die Anmeldedaten des Benutzers gesendet werden.
+Darüber hinaus gestaltet sich so die Umsetzung der Serverstruktur als einfach, da sie so ohne Nebeneffekt erweiterbar ist.
+Der Hauptgrund für die Wahl einer RESTful-Schnittstelle ist jedoch, dass sie unabhänig vom System implementiert werden kann. 
+Es wäre also beispielsweise ohne weiteres möglich neben der App auch eine Webanwendung zu erstellen, welche sich ebenfalls mit dem Backend verbindet.
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.8]{Resources/RESTAPI}
+	\caption{Beispiel für Kommunikation mit der REST-API}
+	\label{pic:rest}
+	\end{center}
+\end{figure}
+
+\begin{table}[H]
+\begin{tabular}{l|l|l}
+\textbf{Endpoint URI} & \textbf{Argumente}  & \textbf{Rückgabewert}\\ \cline{1-3}
+/classrooms/all & Student-Anmeldedaten & alle Kursräume und Status  \\ \cline{1-3}
+/classrooms/subscribed & Student-Anmeldedaten & alle abonnierten Kursräume \\ \cline{1-3}
+/classrooms/subscribe & Student-Anmeldedaten, Kursraumname & Erfolg \\ \cline{1-3}
+/classrooms/unscribe & Student-Anmeldedaten, Kursraumname & Erfolg \\ \cline{1-3}
+/classrooms/subscribed & Student-Anmeldedaten & alle abonnierten Kursräume \\ \cline{1-3}
+/classrooms/create & Dozent-Anmeldedaten, Kursraumname & Erfolg \\ \cline{1-3}
+/classrooms/delete & Dozent-Anmeldedaten, Kursraumname & Erfolg \\ \cline{1-3}
+/classrooms/owned & Dozent-Anmeldedaten & alle Dozenten-Kursraume\\ \cline{1-3}
+/login & Anmeldedaten & Benutzerrolle \\ \cline{1-3}
+/messages/student & Student-Anmeldedaten & abonnierte Nachrichten \\ \cline{1-3}
+/messages/create & Dozent-Anmeldedaten, Kursraumname, Text &  Erfolg\\ \cline{1-3}
+/messages/delete & Dozent-Anmeldedaten, id & Erfolg\\ \cline{1-3}
+\end{tabular}
+\caption{Liste aller Endpoints und deren Argumente beziehungsweise Rückgabewerte}
+\label{table:endpoints}
+\end{table}
+
+
 
 
 
