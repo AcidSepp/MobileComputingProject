@@ -1,0 +1,39 @@
+\chapter{Release-Planung}
+Im Groben sollen die einzelnen Entwicklungschritte folgendermaßen geliedert werden:
+\begin{itemize}
+	\item Vorbereitung der Werkzeuge (Android-Studio, IntelliJ) und erstellen von leeren aber lauffähigen Projekten
+	\item Implementierung der Benutzerverwaltung und des Logins
+	\item Implementierung der Funktionalitäten für Benutzer in der Rolle \enquote{Student}
+	\item Implementierung der Funktionalitäten für Bentuzer in der Rolle \enquote{Dozent}
+	\item Kleinere Überarbeitung der Gestaltung der Benutzeroberflächen
+	\item Implementierung von COULD-Anforderungen
+\end{itemize}
+Im Bezug auf den Arbeitsfluss ist geplant das Backend und die App Hand in Hand umzusetzen. 
+Für jede Anforderung wird zuerst der Datenbankzugriff und der zugehörige REST-Endpoint implementiert.
+Im Anschluss wird dann die jeweilige Benutzeroberfläche, die sich auf die umgesetzte Anforderung bezieht erstellt.
+In Tabelle \ref{table:releaseplanung} ist ein detaillierter Ablauf der Releases dargestellt.
+
+\begin{table}[H]
+\begin{tabular}{l|p{12cm}}
+\textbf{Version} & \textbf{Inhalt} \\ \cline{1-2}
+0.0 & Projekte erstellen und IDEs, Git-Repositories aufsetzen \\ \cline{1-2}
+0.1.1 & \textbf{Login}: Backend Datenbankzugriff implementieren \\ \cline{1-2}
+0.1.2 & \textbf{Login}: Backend REST-Endpoints implementieren \\ \cline{1-2}
+0.1.3 & \textbf{Login}: App Oberfläche implementieren \\ \cline{1-2}
+0.1.4 & \textbf{Login}: App Datenabfrage vom Server implementieren \\ \cline{1-2}
+0.2.1 & \textbf{Student}: Backend Datenbankzugriff implementieren \\ \cline{1-2}
+0.2.2 & \textbf{Student}: Backend REST-Endpoints implementieren \\ \cline{1-2}
+0.2.3 & \textbf{Student}: App Oberfläche implementieren \\ \cline{1-2}
+0.2.4 & \textbf{Student}: App Datenabfrage vom Server implementieren \\ \cline{1-2}
+0.3.1 & \textbf{Dozent}: Backend Datenbankzugriff implementieren \\ \cline{1-2}
+0.3.2 & \textbf{Dozent}: Backend REST-Endpoints implementieren \\ \cline{1-2}
+0.3.3 & \textbf{Dozent}: App Oberfläche implementieren \\ \cline{1-2}
+0.3.4 & \textbf{Dozent}: App Datenabfrage vom Server implementieren \\ \cline{1-2}
+0.4 & Oberflächen überarbeiten \\ \cline{1-2}
+0.5 & Caching und Offline-Speicherung implementieren \\ \cline{1-2}
+1.0 & finales Release
+\end{tabular}
+\caption{Geplanter Versionsverlauf der Releases}
+\label{table:releaseplanung}
+\end{table}
+

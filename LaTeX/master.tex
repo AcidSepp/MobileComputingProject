@@ -30,13 +30,24 @@
 \end{figure}
 \maketitle
 \tableofcontents
-
 \newpage
 
 \input{./Parts/1_Chapter}
 \input{./Parts/2_Chapter}
-\listoffigures 
-\listoftables 
+\input{./Parts/3_Chapter}
+\input{./Parts/4_Chapter}
+\input{./Parts/5_Chapter}
+\input{./Parts/6_Chapter}
+
+\clearpage
+  \begingroup
+    \renewcommand{\clearpage}{}
+    %\printglossary
+    %\printglossary[type=\acronymtype]
+    \listoffigures
+    \listoftables
+    %\lstlistoflistings
+  \endgroup
 \end{document}
 
 
