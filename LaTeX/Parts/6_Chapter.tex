@@ -1,12 +1,7 @@
-\chapter{Wirtschaftlichkeit der App}
-Damit sich die App möglichst weit bei den Nutzern verbreitet wird, soll sie kostenlos über die einschlägigen Verbreitungsdienste wie der \enquote{Google Play Store} angeboten werden.
-Im Sinne der Benutzerfreundlichkeit wird auch auf das Anzeigen von Werbung gänzlich verzichtet.
-Als Einnahmequelle soll jedoch das Verkaufen der Lizenz für das Backend dienen.
-Möchte eine Institution diese Applikation einsetzten so wird ihr darüber hinaus die Inbetriebnahme und der Support der Serverstruktur in Rechnung gestellt.
-\\
-\\
-Aus der Marktanalyse geht hervor, dass bereits viele Apps, die sich der Kommunikation von Nutzern untereinander annehmen existieren. 
-Allerdings bietet keine keine dieser Apps ein zum Kursraumkonzept ein vergleichbares Abonnier-System. 
-Außerdem fehlt die genaue Anpassung an Anforderungen, die der Alltag des Betriebs an einer Hochschule stellt.
-Ein weiterer Vorteil, den diese App gegenüber anderen Kommunikationsapps hat, ist die Möglichkeit Benutzerrollen zu zentral zu verwalten und so Missbrauch wie Spam zu verhindern.
-Es ist also anzunehmen, dass die App \enquote{Notice Board} erfolgreich und gewinnbringend zu vermarkten ist.
+\chapter{Tests}
+Die Tests des Gesamtsystems teilen sich in folgende Gruppen auf:
+\begin{itemize}
+	\item \textbf{Datenbankzugriff:} Unter Anwendung des Testframeworks \enquote{JUnit} werden die Datenzugriffe -- also die SQL-Abfragen -- auf ihre Korrektheit geprüft. Darüberhinaus wird auch das Verhalten im Fehlerfall -- wie ungültige Anmeldedaten -- simuliert.
+	\item \textbf{REST-API:} Mittels des in IntelliJ integrierten Http-Clients können definierte Http-Requests an die jeweiligen Endpoints gesendet werden; hiermit wird die fehlerfreie Funktion der REST-API sichergestellt. Zum Einen wird das Verhalten mit korrekten Eingabedaten (JSON-Bodies) zum Anderen das Erkennen von ungültigen bzw. unvollständigen Daten getestet.
+	\item \textbf{App:} Zur Überprüfung des Verhaltens der App (Korrektes Navigieren, richtiges Verhalten der Buttons und fehlerfreies Kommunizieren mit dem Backend) werden manuelle Tests durchgeführt. Hierbei wird das alltägliche Benutzen der App nachgestellt und eventuell auftretende Fehler analysiert und gegebenenfalls beseitigt. Für die Studenten- und die Dozentenansicht wird jeweils ein Testaccount angelegt und die Anwendungsfälle dieser Rollen werden mehrmals pro Entwicklungsschritt zu Testzwecken ausgeführt.
+\end{itemize}
